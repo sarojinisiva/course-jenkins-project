@@ -23,8 +23,11 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh "pytest"
-                sh "whoami"
+                 dir('01-jenkins-basics') { // Change to the directory where requirements.txt exists
+                   sh "pytest"
+                   sh "whoami"
+                }
+                
             }
         }
         
